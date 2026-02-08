@@ -12,3 +12,22 @@ def add_setting(dic,tup):
         
 print(add_setting({'theme': 'light'}, ('THEME', 'dark')))
 
+
+def update_setting(dic,tup):
+    key,value=tup
+    key=key.lower()
+    value=value.lower()
+    if not key in dic:
+        return f"Setting '{key}' does not exist! Cannot update a non-existing setting."
+    dic[key]=value
+    return f"Setting '{key}' updated to '{value}' successfully!"
+
+
+def delete_setting(dic,tup):
+    key,value=tup
+    key=key.lower()
+    if not key in dic:
+        return "Setting not found!"
+    del dic[key]
+    return f"Setting '{key}' deleted successfully!"
+
