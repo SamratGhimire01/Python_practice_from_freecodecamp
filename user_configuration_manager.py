@@ -24,10 +24,20 @@ def update_setting(dic,tup):
 
 
 def delete_setting(dic,tup):
-    key,value=tup
+    key=tup
     key=key.lower()
     if not key in dic:
         return "Setting not found!"
     del dic[key]
     return f"Setting '{key}' deleted successfully!"
 
+def view_settings(dic):
+    if not dic:
+        return "No settings available."
+    result="Current User Settings:\n"
+    for key,value in dic.items():
+        key=key.capitalize()
+        result += f"{key}: {value}\n"
+    return result
+    
+print(view_settings(test_settings))
